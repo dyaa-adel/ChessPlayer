@@ -1,0 +1,5 @@
+include README.md
+recursive-include src/chess_player/fonts *
+recursive-include src/chess_player/icons *
+recursive-include src/chess_player/images *
+include src/chess_player/piece_recognition.hdf5

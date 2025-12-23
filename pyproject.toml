@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "chess-player"
+version = "1.0.0"
+description = "A chess player application using CV and AI."
+readme = "README.md"
+authors = [{ name = "Dyaa Adel", email = "dyaa.ae.g@gmail.com" }]
+license = { text = "MIT" }
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+requires-python = ">=3.7"
+dependencies = [
+    "opencv-python",
+    "PyQt5",
+    "tensorflow==2.10.0",
+    "scikit-image",
+    "numpy==1.26.4",
+    "python-chess",
+    "PyAutoGUI",
+    "h5py",
+    "pillow"
+]
+
+[project.scripts]
+chess-player = "chess_player:main"
+
+[project.urls]
+"Homepage" = "https://github.com/dyaa-adel/ChessPlayer"

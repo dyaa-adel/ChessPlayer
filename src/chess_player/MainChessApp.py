@@ -2,15 +2,16 @@ from PyQt5.QtWidgets import QApplication , QLabel , QWidget , QPushButton , QHBo
 from PyQt5.QtGui import QFont , QFontDatabase
 from PyQt5.QtCore import QDir , Qt
 from PyQt5.QtGui import QIcon
-from app_styles import app_styles
-from board_extraction import *
-from board_state_utils import *
-from ChessPlayer import *
-from SettingsManager import SettingsManager
-from show_move import board_with_move
+from .app_styles import app_styles
+from .board_extraction import *
+from .board_state_utils import *
+from .ChessPlayer import *
+from .SettingsManager import SettingsManager
+from .show_move import board_with_move
 import time
 import pyautogui 
 from numpy import array
+import os
 
 def get_screen_image(window):
     """
@@ -40,7 +41,8 @@ class MainChessApp():
         #Set application details and icon
         self.app.setApplicationName("Chess Player") 
         self.app.setApplicationDisplayName("Chess Player")
-        self.app.setWindowIcon(QIcon("icons/chess_icon.ico"))
+        base_path = os.path.dirname(__file__)
+        self.app.setWindowIcon(QIcon(os.path.join(base_path, "icons/chess_icon.ico")))
 
         #Get SettingsManager Instance
         self.settingsManager = SettingsManager()
@@ -51,7 +53,8 @@ class MainChessApp():
         Build main window UI
         """
         #Add The font
-        _id = QFontDatabase.addApplicationFont("fonts/CenturyGothic.ttf")
+        base_path = os.path.dirname(__file__)
+        _id = QFontDatabase.addApplicationFont(os.path.join(base_path, "fonts/CenturyGothic.ttf"))
 
         #set the application style
         self.setAppStyle()

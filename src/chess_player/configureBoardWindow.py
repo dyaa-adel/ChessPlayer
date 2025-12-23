@@ -1,5 +1,5 @@
 from PyQt5.QtWidgets import QApplication , QLabel , QWidget , QPushButton , QHBoxLayout , QVBoxLayout , QComboBox
-from BoardDrawer import *
+from .BoardDrawer import *
 
 def create_unit_comboBox():
     cb = QComboBox()

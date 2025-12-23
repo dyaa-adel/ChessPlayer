@@ -1,6 +1,6 @@
 from numpy import pi
 import cv2 
-from board_state_utils import SQUARE_SIZE
+from .board_state_utils import SQUARE_SIZE
 
 def add_boundaries(board_width,h,v,error): 
 	"""
@@ -106,7 +106,7 @@ def get_board_image(color):
 	print('w2 : ',w2)
 
 	#No Sqaures found
-	if (w1 is 0) and (w2 is 0):
+	if (w1 == 0) and (w2 == 0):
 		return False , False
 
 
@@ -140,7 +140,7 @@ def extract_pattern(board,h,v):
 			spacing = h[index+1][0]-h[index][0]
 		else:
 			checkers_found = checkers_found + 1
-		if checkers_found is 8:
+		if checkers_found == 8:
 			print('Horizontal pattern found')
 			horz_pattern = True
 			break
@@ -156,7 +156,7 @@ def extract_pattern(board,h,v):
 			spacing = v[index+1][0]-v[index][0]
 		else:
 			checkers_found = checkers_found + 1
-		if checkers_found is 8:
+		if checkers_found == 8:
 			print('Vertical pattern found')
 			vert_pattern = True
 			break

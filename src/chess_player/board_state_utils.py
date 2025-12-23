@@ -1,9 +1,11 @@
 from keras.models import load_model
 from skimage.transform import resize
 from skimage.util.shape import view_as_blocks
+import os
 
 SQUARE_SIZE = 40 #must be less than 400/8==50
-model = load_model("piece_recognition.hdf5" , compile=False) #load piece recogniser
+MODEL_PATH = os.path.join(os.path.dirname(__file__), "piece_recognition.hdf5")
+model = load_model(MODEL_PATH , compile=False) #load piece recogniser
 piece_symbols = 'prbnkqPRBNKQ' #Symbols used in the fen notation
 
 def process_image(img_read):

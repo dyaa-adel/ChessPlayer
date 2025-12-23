@@ -1,7 +1,7 @@
 from PyQt5.QtSvg import QSvgWidget, QSvgRenderer
 import chess
 import chess.svg
-from keyEventHandler import *
+from .keyEventHandler import *
 
 symbols = "RNBKQP"
 

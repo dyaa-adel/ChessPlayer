@@ -29,7 +29,10 @@ class SettingsManager(metaclass=Singleton):
     The SettingsManager class - it is a singeleton
     """
     def __init__(self):
-        self.settings_path = os.path.abspath(os.getcwd()) + '/settings/'
+        self.settings_path = os.path.join(os.path.expanduser("~"), ".chess_player_settings")
+        if not os.path.exists(self.settings_path):
+             os.makedirs(self.settings_path)
+        self.settings_path += os.sep
         self.loadSettings()
     
     def loadSettings(self):
@@ -76,12 +79,12 @@ class SettingsManager(metaclass=Singleton):
         """
         h_layout = QHBoxLayout()
         setting_label = QLabel(setting_name)
-        setting_label.setFixedWidth(self.settingsWindow.width()/3)
+        setting_label.setFixedWidth(self.settingsWindow.width()//3)
         setting_label.setWordWrap(True)
         h_layout.addWidget(setting_label)
         setting_lineEdit = QLineEdit()
         setting_lineEdit.setText(setting_value)
-        setting_lineEdit.setFixedWidth(self.settingsWindow.width()/2)
+        setting_lineEdit.setFixedWidth(self.settingsWindow.width()//2)
         #TODO add invalid values / error checking
         setting_lineEdit.textChanged.connect(lambda: self.updateSettings(setting_name,setting_lineEdit.text()))
         h_layout.addWidget(setting_lineEdit)
@@ -94,7 +97,7 @@ class SettingsManager(metaclass=Singleton):
         """
         h_layout = QHBoxLayout()
         setting_label = QLabel(setting_name)
-        setting_label.setFixedWidth(self.settingsWindow.width()/3)
+        setting_label.setFixedWidth(self.settingsWindow.width()//3)
         setting_label.setWordWrap(True)
         h_layout.addWidget(setting_label)
         setting_lineEdit = QLineEdit()
@@ -115,7 +118,7 @@ class SettingsManager(metaclass=Singleton):
         """
         h_layout = QHBoxLayout()
         setting_label = QLabel(setting_name)
-        setting_label.setFixedWidth(self.settingsWindow.width()/3)
+        setting_label.setFixedWidth(self.settingsWindow.width()//3)
         setting_label.setWordWrap(True)
         h_layout.addWidget(setting_label)
         setting_value_label = QLabel(setting_value)

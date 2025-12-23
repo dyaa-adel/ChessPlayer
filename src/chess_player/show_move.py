@@ -1,6 +1,6 @@
 from cv2 import arrowedLine
 from cv2 import imshow
-from SettingsManager import *
+from .SettingsManager import *
 
 board_with_move = None
 

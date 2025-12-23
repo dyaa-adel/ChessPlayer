@@ -1,10 +1,10 @@
 from PyQt5.QtWidgets import QMessageBox
-from configureBoardWindow import *
-from SettingsManager import *
+from .configureBoardWindow import *
+from .SettingsManager import *
 import os
 import chess.engine
 from chess import flip_horizontal , flip_vertical
-from show_move import *
+from .show_move import *
 
 def show_no_engine_msgbox():
     """
